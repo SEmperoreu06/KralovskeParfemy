@@ -1,0 +1,530 @@
+<html>
+  <head>
+    <base href="https://perfume.gallery/" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Přehlídka luxusních parfémů | Královské parfemy</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap");
+
+      :root {
+        --primary-color: #1a1a1a;
+        --secondary-color: #d4af37;
+        --background-color: #f9f9f9;
+        --text-color: #333;
+        --light-text-color: #666;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: var(--background-color);
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logo {
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease;
+      }
+
+      .logo:hover {
+        transform: scale(1.1);
+      }
+
+      h1 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 3.5rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        letter-spacing: 2px;
+      }
+
+      .tagline {
+        font-size: 1.2rem;
+        color: var(--light-text-color);
+        font-style: italic;
+      }
+
+      .info-text {
+        text-align: center;
+        font-size: 1.4rem;
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+        padding: 1rem;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        font-weight: 600;
+      }
+
+      .perfume-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .perfume-item {
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .perfume-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .perfume-image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .perfume-item:hover .perfume-image {
+        transform: scale(1.1);
+      }
+
+      .perfume-details {
+        padding: 1.5rem;
+        text-align: center;
+      }
+
+      .perfume-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .perfume-brand {
+        font-size: 1.2rem;
+        color: var(--secondary-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .perfume-price {
+        font-size: 1.4rem;
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-top: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        h1 {
+          font-size: 3rem;
+        }
+
+        .perfume-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      header::after {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 3px;
+        background-color: var(--secondary-color);
+        margin: 1rem auto;
+      }
+
+      .scroll-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--secondary-color);
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .scroll-top.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 3rem;
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .social-links {
+        margin-top: 1rem;
+      }
+
+      .social-links a {
+        color: white;
+        font-size: 24px;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+      }
+
+      .social-links a:hover {
+        color: var(--secondary-color);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <svg class="logo" width="150" height="150" viewBox="0 0 100 100">
+          <image
+            href="https://i.postimg.cc/FKt6v1jR/LOGO-best-removebg-preview.png"
+            x="0"
+            y="0"
+            width="100"
+            height="100"
+          />
+        </svg>
+        <h1>Královské parfémy</h1>
+        <p class="tagline">Objevte naši exkluzivní kolekci</p>
+      </header>
+      <div class="info-text">
+        Pokud máte zájem o jakoukoli vůni, napište nám
+        <a
+          href="https://www.instagram.com/kralovske_parfemy_cz/"
+          target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </div>
+      <main class="perfume-grid">
+        <div class="perfume-item">
+          <img
+            src="https://d25-a.sdn.cz/d_25/c_img_QK_JR/NWdBfCb.jpeg"
+            alt="Flakon parfému Prada Paradoxe"
+            class="perfume-image"
+            width="300"
+            height="300"
+          />
+          <div class="perfume-details">
+            <h2 class="perfume-name">Paradoxe</h2>
+            <p class="perfume-brand">Prada</p>
+            <p class="perfume-price">2000 Kč</p>
+          </div>
+        </div>
+        <div class="perfume-item">
+          <img
+            src="https://www.koku.cz/buxus/images/products/3351865_47460521678768261.jpg"
+            alt="Flakon parfému Versace Eros"
+            class="perfume-image"
+            width="300"
+            height="300"
+          />
+          <div class="perfume-details">
+            <h2 class="perfume-name">Eros</h2>
+            <p class="perfume-brand">Versace</p>
+            <p class="perfume-price">1000 Kč</p>
+          </div>
+        </div>
+        <div class="perfume-item">
+          <img
+            src="https://img.vivantiscdn.net/photos/w600_h600_fN/p/_orig/PR/paco-rabanne-1-million-parfum-edp_1465346020201014123704.jpg"
+            alt="Flakon parfému Paco Rabanne Million"
+            class="perfume-image"
+            width="300"
+            height="300"
+          />
+          <div class="perfume-details">
+            <h2 class="perfume-name">Million</h2>
+            <p class="perfume-brand">Paco Rabanne</p>
+            <p class="perfume-price">1000 Kč</p>
+          </div>
+        </div>
+        <div class="perfume-item">
+          <img
+            src="https://img-cdn.heureka.group/v1/16308a31-9a71-4fab-a528-e28c0aa34a17.jpg"
+            alt="Flakon parfému Armani Sí"
+            class="perfume-image"
+            width="300"
+            height="300"
+          />
+          <div class="perfume-details">
+            <h2 class="perfume-name">Sí</h2>
+            <p class="perfume-brand">Armani</p>
+            <p class="perfume-price">1000 Kč</p>
+          </div>
+        </div>
+        <div class="perfume-item">
+          <img
+            src="https://i.makeup.cz/l/lu/luovv99wkgsd.jpg"
+            alt="Flakon parfému Armani My Way"
+            class="perfume-image"
+            width="300"
+            height="300"
+          />
+          <div class="perfume-details">
+            <h2 class="perfume-name">My Way</h2>
+            <p class="perfume-brand">Armani</p>
+            <p class="perfume-price">1000 Kč</p>
+          </div>
+        </div>
+        <div class="perfume-item">
+          <img
+            src="https://www.parfemy-elnino.cz/data/cache/thumb_min500_max1000-min500_max1000-12/products/393428/1601468441/chanel-coco-mademoiselle-l-eau-privee-parfemovana-voda-pro-zeny-100-ml-331348.jpg"
+            alt="Flakon parfému Coco Chanel"
+            class="perfume-image"
+            width="300"
+            height="300"
+          />
+          <div class="perfume-details">
+            <h2 class="perfume-name">Coco</h2>
+            <p class="perfume-brand">Chanel</p>
+            <p class="perfume-price">1000 Kč</p>
+          </div>
+        </div>
+        <div class="perfume-item">
+          <img
+            src="https://www.chanel.com/images//t_one/w_0.51,h_0.51,c_crop/q_auto:good,f_auto,fl_lossy,dpr_1.1/w_620/n-5-eau-de-parfum-spray-3-4fl-oz--packshot-default-125530-9539148742686.jpg"
+            alt="Flakon parfému Chanel N°5"
+            class="perfume-image"
+            width="300"
+            height="300"
+          />
+          <div class="perfume-details">
+            <h2 class="perfume-name">N°5</h2>
+            <p class="perfume-brand">Chanel</p>
+            <p class="perfume-price">1000 Kč</p>
+          </div>
+        </div>
+        <div class="perfume-item">
+          <img
+            src="https://im9.cz/iR/importprodukt-orig/040/0407722d509e223bbf9d1d5c4dc5b978.jpg"
+            alt="Flakon parfému Dolce & Gabbana The One"
+            class="perfume-image"
+            width="300"
+            height="300"
+          />
+          <div class="perfume-details">
+            <h2 class="perfume-name">The One</h2>
+            <p class="perfume-brand">Dolce & Gabbana</p>
+            <p class="perfume-price">1000 Kč</p>
+          </div>
+        </div>
+        <div class="perfume-item">
+          <img
+            src="https://static.fann.cz/uploads/varianty/13/34/92/13349-2.jpg"
+            alt="Flakon parfému Carolina Herrera Bad Boy"
+            class="perfume-image"
+            width="300"
+            height="300"
+          />
+          <div class="perfume-details">
+            <h2 class="perfume-name">Bad Boy</h2>
+            <p class="perfume-brand">Carolina Herrera</p>
+            <p class="perfume-price">1000 Kč</p>
+          </div>
+        </div>
+        <div class="perfume-item">
+          <img
+            src="https://img.vivantiscdn.net/photos/w600_h600_fN/p/_orig/CR/carolina-herrera-good-girl-edp_14383475.jpg"
+            alt="Flakon parfému Carolina Herrera Good Girl"
+            class="perfume-image"
+            width="300"
+            height="300"
+          />
+          <div class="perfume-details">
+            <h2 class="perfume-name">Good Girl</h2>
+            <p class="perfume-brand">Carolina Herrera</p>
+            <p class="perfume-price">1000 Kč</p>
+          </div>
+        </div>
+        <div class="perfume-item">
+          <img
+            src="https://www.sephora.cz/dw/image/v2/BCVW_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwcfde8a26/images/hi-res/alternates/PID_alternate1/PID_alternate1_1940/P3087_1.jpg?sw=265&sh=265&sm=fit"
+            alt="Flakon parfému Dior J'adore"
+            class="perfume-image"
+            width="300"
+            height="300"
+          />
+          <div class="perfume-details">
+            <h2 class="perfume-name">J'adore</h2>
+            <p class="perfume-brand">Dior</p>
+            <p class="perfume-price">1000 Kč</p>
+          </div>
+        </div>
+        <div class="perfume-item">
+          <img
+            src="https://img.vivantiscdn.net/photos/-/p/_orig/CK/calvin-klein-eternity-parfemova-voda-s-rozprasovacem_14083519102728.jpg"
+            alt="Flakon parfému Calvin Klein Eternity"
+            class="perfume-image"
+            width="300"
+            height="300"
+          />
+          <div class="perfume-details">
+            <h2 class="perfume-name">Eternity</h2>
+            <p class="perfume-brand">Calvin Klein</p>
+            <p class="perfume-price">1000 Kč</p>
+          </div>
+        </div>
+        <div class="perfume-item">
+          <img
+            src="https://cdn.zivada.cz/images/0/fc20b987bec954b0/1/dolce-gabbana-the-one-for-men.jpg?hash=1922669609"
+            alt="Flakon parfému Yves Saint Laurent Black Opium"
+            class="perfume-image"
+            width="300"
+            height="300"
+          />
+          <div class="perfume-details">
+            <h2 class="perfume-name">The One</h2>
+            <p class="perfume-brand">Dolce Gabbana</p>
+            <p class="perfume-price">1000 Kč</p>
+          </div>
+        </div>
+        <div class="perfume-item">
+          <img
+            src="https://www.profi-parfemy.cz/data/tmp/0/9/36899_0.jpg?1692387021_1"
+            alt="Flakon parfému Lancome Idole"
+            class="perfume-image"
+            width="300"
+            height="300"
+          />
+          <div class="perfume-details">
+            <h2 class="perfume-name">Idole</h2>
+            <p class="perfume-brand">Lancome</p>
+            <p class="perfume-price">1000 Kč</p>
+          </div>
+        </div>
+        <div class="perfume-item">
+          <img
+            src="https://i5.walmartimages.com/asr/212eecac-3b19-422d-8f1f-b31e37e3189c_1.faeed96e55147251be38ea789dfce8f6.jpeg"
+            alt="Flakon parfému Gucci Flora"
+            class="perfume-image"
+            width="300"
+            height="300"
+          />
+          <div class="perfume-details">
+            <h2 class="perfume-name">Flora</h2>
+            <p class="perfume-brand">Gucci</p>
+            <p class="perfume-price">1000 Kč</p>
+          </div>
+        </div>
+        <div class="perfume-item">
+          <img
+            src="https://d25-a.sdn.cz/d_25/c_img_G_DK/dtKcjH.jpeg?fl=res%2C350%2C350%2C1%2Cfff%7Cwebp%2C80"
+            alt="Flakon parfému Diesel Tattoo"
+            class="perfume-image"
+            width="300"
+            height="300"
+          />
+          <div class="perfume-details">
+            <h2 class="perfume-name">Tattoo</h2>
+            <p class="perfume-brand">Diesel</p>
+            <p class="perfume-price">1000 Kč</p>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="scroll-top">
+      <i class="fas fa-chevron-up"></i>
+    </div>
+    <footer>
+      <p>&copy; 2024 Královské parfémy. Všechna práva vyhrazena.</p>
+      <div class="social-links">
+        <a
+          href="https://www.instagram.com/kralovske_parfemy_cz/"
+          target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+      // Animated entrance for perfume items
+      gsap.from(".perfume-item", {
+        duration: 1,
+        opacity: 0,
+        y: 50,
+        stagger: 0.2,
+        ease: "power3.out",
+      });
+
+      // Animate info text
+      gsap.from(".info-text", {
+        duration: 1,
+        opacity: 0,
+        y: -20,
+        ease: "power3.out",
+      });
+
+      // Scroll to top functionality
+      const scrollTop = document.querySelector(".scroll-top");
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 200) {
+          scrollTop.classList.add("visible");
+        } else {
+          scrollTop.classList.remove("visible");
+        }
+      });
+
+      scrollTop.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Add hover effect to perfume items
+      const perfumeItems = document.querySelectorAll(".perfume-item");
+      perfumeItems.forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+          gsap.to(item, {
+            duration: 0.3,
+            scale: 1.05,
+            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
+          });
+        });
+        item.addEventListener("mouseleave", () => {
+          gsap.to(item, {
+            duration: 0.3,
+            scale: 1,
+            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
