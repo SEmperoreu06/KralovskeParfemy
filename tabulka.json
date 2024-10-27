@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Paradoxe",
+    "brand": "Prada",
+    "price": 2000,
+    "imageUrl": "https://d25-a.sdn.cz/d_25/c_img_QK_JR/NWdBfCb.jpeg"
+  },
+  {
+    "name": "Eros",
+    "brand": "Versace",
+    "price": 1000,
+    "imageUrl": "https://www.koku.cz/buxus/images/products/3351865_47460521678768261.jpg"
+  },
+  {
+    "name": "Million",
+    "brand": "Paco Rabanne",
+    "price": 1000,
+    "imageUrl": "https://img.vivantiscdn.net/photos/w600_h600_fN/p/_orig/PR/paco-rabanne-1-million-parfum-edp_1465346020201014123704.jpg"
+  },
+  {
+    "name": "Sí",
+    "brand": "Armani",
+    "price": 1000,
+    "imageUrl": "https://img-cdn.heureka.group/v1/16308a31-9a71-4fab-a528-e28c0aa34a17.jpg"
+  },
+  {
+    "name": "My Way",
+    "brand": "Armani",
+    "price": 1000,
+    "imageUrl": "https://i.makeup.cz/l/lu/luovv99wkgsd.jpg"
+  },
+  {
+    "name": "Coco",
+    "brand": "Chanel",
+    "price": 1000,
+    "imageUrl": "https://www.parfemy-elnino.cz/data/cache/thumb_min500_max1000-min500_max1000-12/products/393428/1601468441/chanel-coco-mademoiselle-l-eau-privee-parfemovana-voda-pro-zeny-100-ml-331348.jpg"
+  },
+  {
+    "name": "N°5",
+    "brand": "Chanel",
+    "price": 1000,
+    "imageUrl": "https://www.chanel.com/images//t_one/w_0.51,h_0.51,c_crop/q_auto:good,f_auto,fl_lossy,dpr_1.1/w_620/n-5-eau-de-parfum-spray-3-4fl-oz--packshot-default-125530-9539148742686.jpg"
+  },
+  {
+    "name": "The One",
+    "brand": "Dolce & Gabbana",
+    "price": 1000,
+    "imageUrl": "https://im9.cz/iR/importprodukt-orig/040/0407722d509e223bbf9d1d5c4dc5b978.jpg"
+  },
+  {
+    "name": "Bad Boy",
+    "brand": "Carolina Herrera",
+    "price": 1000,
+    "imageUrl": "https://static.fann.cz/uploads/varianty/13/34/92/13349-2.jpg"
+  },
+  {
+    "name": "Good Girl",
+    "brand": "Carolina Herrera",
+    "price": 1000,
+    "imageUrl": "https://img.vivantiscdn.net/photos/w600_h600_fN/p/_orig/CR/carolina-herrera-good-girl-edp_14383475.jpg"
+  },
+  {
+    "name": "J'adore",
+    "brand": "Dior",
+    "price": 1000,
+    "imageUrl": "https://www.sephora.cz/dw/image/v2/BCVW_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwcfde8a26/images/hi-res/alternates/PID_alternate1/PID_alternate1_1940/P3087_1.jpg?sw=265&sh=265&sm=fit"
+  },
+  {
+    "name": "Eternity",
+    "brand": "Calvin Klein",
+    "price": 1000,
+    "imageUrl": "https://img.vivantiscdn.net/photos/-/p/_orig/CK/calvin-klein-eternity-parfemova-voda-s-rozprasovacem_14083519102728.jpg"
+  },
+  {
+    "name": "The One",
+    "brand": "Dolce Gabbana",
+    "price": 1000,
+    "imageUrl": "https://cdn.zivada.cz/images/0/fc20b987bec954b0/1/dolce-gabbana-the-one-for-men.jpg?hash=1922669609"
+  },
+  {
+    "name": "Idole",
+    "brand": "Lancome",
+    "price": 1000,
+    "imageUrl": "https://www.profi-parfemy.cz/data/tmp/0/9/36899_0.jpg?1692387021_1"
+  },
+  {
+    "name": "Flora",
+    "brand": "Gucci",
+    "price": 1000,
+    "imageUrl": "https://i5.walmartimages.com/asr/212eecac-3b19-422d-8f1f-b31e37e3189c_1.faeed96e55147251be38ea789dfce8f6.jpeg"
+  },
+  {
+    "name": "Tattoo",
+    "brand": "Diesel",
+    "price": 1000,
+    "imageUrl": "https://d25-a.sdn.cz/d_25/c_img_G_DK/dtKcjH.jpeg?fl=res%2C350%2C350%2C1%2Cfff%7Cwebp%2C80"
+  }
+]
